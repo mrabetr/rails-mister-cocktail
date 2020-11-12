@@ -2,6 +2,16 @@
   <h1><%= @cocktail.name %></h1>
 </article>
 
+<div class="list-group">
+  <% @cocktail.doses.each do |dose| %>
+    <p class= "list-group-item list-group-item-action">
+      <%= dose.description %> of <%= dose.ingredient.name %>
+      <%= link_to "Delete", dose_path(dose), method: :delete, data: {confirm: "are you sure?"}  %>
+    </p>
+  <% end %>
+</div>
+
 <div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <%= link_to "New Dose", new_cocktail_dose_path(@cocktail.id), class: "btn btn-sm btn-outline-secondary" %>
   <%= link_to "List", cocktails_path, class: "btn btn-sm btn-outline-secondary" %>
 </div>
