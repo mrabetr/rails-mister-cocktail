@@ -1,4 +1,9 @@
-<%= render "form", cocktail: @cocktail %>
-<small>
-  <%= link_to "Back", cocktails_path, class: "text-secondary" %>
-</small>
+<%= render "navbar" %>
+
+<div class="container mb-3">
+  <%= render "form", cocktail: @cocktail %>
+
+  <small>
+    <%= link_to "Back", cocktails_path, class: "text-secondary" %>
+  </small>
+</div>

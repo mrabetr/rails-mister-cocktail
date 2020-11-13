@@ -11,3 +11,6 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+// note the below was added to make select2 style work instead of adding this the application.html.erb
+// <link rel="stylesheet" href="node_modules/select2/dist/css/select2.css">
+@import "select2/dist/css/select2";

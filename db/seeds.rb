@@ -1,5 +1,17 @@
-Ingredient.create(name: "lemon")
-Ingredient.create(name: "ice")
-Ingredient.create(name: "mint leaves")
+require 'open-uri'
+require 'json'
 
-Cocktail.create(name: 'virgin mojito')
+url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+response = open(url).read
+ingredients = JSON(response)
+ingredients['drinks'].each do |ingredient|
+  Ingredient.create(name: ingredient['strIngredient1'])
+end
+
+# ingredients.drinks
+
+# Ingredient.create(name: "Lemon")
+# Ingredient.create(name: "Ice")
+# Ingredient.create(name: "Mint leaves")
+
+# Cocktail.create(name: 'virgin mojito')

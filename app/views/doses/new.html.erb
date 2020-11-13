@@ -1,5 +1,13 @@
-<%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.input :description %>
-  <%= f.association :ingredient %>
-  <%= f.submit class: "btn btn-sm btn-outline-secondary" %>
-<% end %>
+<%= render "navbar" %>
+
+<div class="container mb-3">
+  <%= simple_form_for [@cocktail, @dose] do |f| %>
+    <%= f.input :description %>
+    <%= f.association :ingredient, input_html: { class: 'select2' } %>
+    <%= f.submit class: "btn btn-sm btn-outline-secondary" %>
+  <% end %>
+
+  <small>
+    <%= link_to "Back", cocktail_path(@cocktail), class: "text-secondary" %>
+  </small>
+</div>

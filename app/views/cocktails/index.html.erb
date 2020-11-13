@@ -1,7 +1,28 @@
-<h1>List</h1>
+<%= render "navbar" %>
 
-<div class="list-group">
-  <% @cocktails.each do |cocktail| %>
-    <%= link_to cocktail.name, cocktail_path(cocktail), class: "list-group-item list-group-item-action" %>
-  <% end %>
+<div class="container mb-3">
+  <h1>List</h1>
+
+  <div class="list-group">
+    <% @cocktails.each do |cocktail| %>
+      <%= link_to cocktail.name, cocktail_path(cocktail), class: "list-group-item list-group-item-action" %>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <%= link_to cocktail_path(cocktail) do %>
+        <div class="col">
+          <div class="card text-white" style="width: 18rem;">
+            <img class="card-img-top" src="https://images.unsplash.com/photo-1578664182391-acdf392468a0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Card image cap">
+            <div class="card-img-overlay">
+                <h5 class="card-title"><%= cocktail.name %></h5>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
 </div>
+
