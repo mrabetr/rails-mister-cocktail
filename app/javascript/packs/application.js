@@ -19,8 +19,10 @@ import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
+  console.log("hello");
   initUpdateNavbarOnScroll();
-  if (document.querySelector(".tagName")) {
+  if (document.querySelector("#banner-typed-text")) {
+    console.log("here");
     loadDynamicBannerText();
   }
   if (document.querySelector(".select2")) {
